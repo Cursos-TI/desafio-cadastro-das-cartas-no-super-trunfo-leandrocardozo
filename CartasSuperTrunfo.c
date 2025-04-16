@@ -85,7 +85,7 @@ int main()
     
 
 
-      // inicializando variáveis da cidade 1
+      // inicializando variáveis da cidade 2
       char letraEstado_2[2];
       char nomeCidade_2[20];
       char codigoCidade_2[5];
