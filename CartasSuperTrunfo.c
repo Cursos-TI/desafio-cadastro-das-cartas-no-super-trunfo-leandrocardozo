@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
+#include <stdlib.h>
 
 // Aluno: Leandro Cardoso Braga
 
-int main()
-{
+int main() {
 
   // inicializando variáveis da cidade 1
   char letraEstado_1;
@@ -151,38 +152,66 @@ int main()
   printf("\n");
 
   // COMPARAÇÃO DE CARTA E SUPER PODERES
+  // AGORA USANDO O OPERADOR DE CONDICIONAL IF/ELSE
 
-  int ptsTuristicosVencedor = ptsTuristicosCidade_1 > ptsTuristicosCidade_2;
-  int populacaoCidadeVencedor = populacaoCidade_1 > populacaoCidade_2;
-  int areaCidadeVencedor = areaCidade_1 > areaCidade_2;
-  int pibCidadeVencedor = pibCidade_1 > pibCidade_2;
-  int pibPerCapitaVencedor = pibPercapita_1 > pibPercapita_2;
-  int menorDensidadeVencedor = densidadePopulacional_1 < densidadePopulacional_2;
-  
+  // int ptsTuristicosVencedor = ptsTuristicosCidade_1 > ptsTuristicosCidade_2;
+  // int populacaoCidadeVencedor = populacaoCidade_1 > populacaoCidade_2;
+  // int areaCidadeVencedor = areaCidade_1 > areaCidade_2;
+  // int pibCidadeVencedor = pibCidade_1 > pibCidade_2;
+  // int pibPerCapitaVencedor = pibPercapita_1 > pibPercapita_2;
+  // int menorDensidadeVencedor = densidadePopulacional_1 < densidadePopulacional_2;
+
   // Calculando o inverso da densidade populacional
   float inversoDensidadePopulacional_1 = 1 / densidadePopulacional_1;
   float inversoDensidadePopulacional_2 = 1 / densidadePopulacional_2;
-  
+
   // Calculando o Super Poder para cada cidade
   superPoderCidade_1 = populacaoCidade_1 + areaCidade_1 + pibCidade_1 + ptsTuristicosCidade_1 + pibPercapita_1 + inversoDensidadePopulacional_1;
   superPoderCidade_2 = populacaoCidade_2 + areaCidade_2 + pibCidade_2 + ptsTuristicosCidade_2 + pibPercapita_2 + inversoDensidadePopulacional_2;
-  
-  int superPoderVencedor = superPoderCidade_1 > superPoderCidade_2;
+
+  // int superPoderVencedor = superPoderCidade_1 > superPoderCidade_2;
   // Exibindo os Super Poderes
 
   printf("############################################################\n");
   printf("Comparando se o atributo da Carta 1 é maior que o da Carta 2\n");
-  printf("-----------Se o código for [1] a Carta 1 venceu!----------\n");
-  printf("-----------Se o código for [0] a Carta 2 venceu!----------\n");
-  printf("############################################################\n");
+  // printf("-----------Se o código for [1] a Carta 1 venceu!----------\n");
+  // printf("-----------Se o código for [0] a Carta 2 venceu!----------\n");
+  printf("############################################################\n\n");
 
-  printf("(Poder: Pontos Turisticos), Resultado: [%d]\n", ptsTuristicosVencedor);
-  printf("(Poder: População da Cidade), Resultado: [%d]\n", populacaoCidadeVencedor);
-  printf("(Poder: Área da Cidade), Resultado: [%d]\n", areaCidadeVencedor);
-  printf("(Poder: PIB da Cidade), Resultado: [%d]\n", pibCidadeVencedor);
-  printf("(Poder: PIB Per Capita), Resultado: [%d]\n", pibPerCapitaVencedor);
-  printf("(Poder: Densidade Pupulacional), Resultado: [%d]\n", menorDensidadeVencedor);
-  printf("(Poder: Super Poder), Resultado: [%d]\n", superPoderVencedor);
+  // printf("(Poder: Pontos Turisticos), Resultado: [%d]\n", ptsTuristicosVencedor);
+  // printf("(Poder: População da Cidade), Resultado: [%d]\n", populacaoCidadeVencedor);
+  // printf("(Poder: Área da Cidade), Resultado: [%d]\n", areaCidadeVencedor);
+  // printf("(Poder: PIB da Cidade), Resultado: [%d]\n", pibCidadeVencedor);
+  // printf("(Poder: PIB Per Capita), Resultado: [%d]\n", pibPerCapitaVencedor);
+  // printf("(Poder: Densidade Pupulacional), Resultado: [%d]\n", menorDensidadeVencedor);
+  // printf("(Poder: Super Poder), Resultado: [%d]\n", superPoderVencedor);
+
+  // Variável criada para armazenar a diferença de pts turísticos.
+  //Adicionei função fabs para ignorar o sinal negativo caso a carta 2 vença.
+  int res = abs(ptsTuristicosCidade_1 - ptsTuristicosCidade_2);
+
+  // Comparando atributo pontos turísticos
+  printf("** Batalha de Pontos Turísticos **\n");
+  printf("Pontos turísticos Carta 1 [%d] \n", ptsTuristicosCidade_1);
+  printf("Pontos turísticos Carta 2 [%d] \n", ptsTuristicosCidade_2);
+
+  if (ptsTuristicosCidade_1 > ptsTuristicosCidade_2) {
+    printf("- Carta [1] venceu! %s possui %d Pontos Turisticos a mais que %s!\n", nomeCidade_1, res, nomeCidade_2);
+  } else {
+    printf("- Carta [2] venceu! %s possui %d Pontos Turisticos a mais que %s!\n", nomeCidade_2, res, nomeCidade_1);
+  }
+
+  //Adicionei a biblioteca Math para usar a função fabs e ignorar
+  //o sinal negativo caso a carta 2 vença.
+  float resSup = fabs(superPoderCidade_1 - superPoderCidade_2);
+
+  // Comparando atributo Super poder
+  printf("** Batalha de Super Poderes **\n");
+  if (superPoderCidade_1 > superPoderCidade_2) {
+    printf("- Carta [1] venceu! %s tem um Super Poder de %.2f a mais no total!\n", nomeCidade_1, resSup);
+  } else {
+    printf("- Carta [2] venceu! %s tem um Super Poder de %.2f a mais no total!\n\n", nomeCidade_2, resSup);
+  }
 
   return 0;
 }
