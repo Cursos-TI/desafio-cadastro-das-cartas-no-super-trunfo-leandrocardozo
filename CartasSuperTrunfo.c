@@ -5,7 +5,8 @@
 
 // Aluno: Leandro Cardoso Braga
 
-int main() {
+int main()
+{
 
   // inicializando variáveis da cidade 1
   char letraEstado_1;
@@ -173,9 +174,7 @@ int main() {
   // Exibindo os Super Poderes
 
   printf("############################################################\n");
-  printf("Comparando se o atributo da Carta 1 é maior que o da Carta 2\n");
-  // printf("-----------Se o código for [1] a Carta 1 venceu!----------\n");
-  // printf("-----------Se o código for [0] a Carta 2 venceu!----------\n");
+  printf("------------------ BATALHA DE CARTAS -----------------------\n");
   printf("############################################################\n\n");
 
   // printf("(Poder: Pontos Turisticos), Resultado: [%d]\n", ptsTuristicosVencedor);
@@ -186,32 +185,220 @@ int main() {
   // printf("(Poder: Densidade Pupulacional), Resultado: [%d]\n", menorDensidadeVencedor);
   // printf("(Poder: Super Poder), Resultado: [%d]\n", superPoderVencedor);
 
-  // Variável criada para armazenar a diferença de pts turísticos.
-  //Adicionei função fabs para ignorar o sinal negativo caso a carta 2 vença.
+  // Variável criada para armazenar a diferença de pts turísticos e super poderes.
+  // Adicionei função fabs para ignorar o sinal negativo caso a carta 2 vença.
   int res = abs(ptsTuristicosCidade_1 - ptsTuristicosCidade_2);
-
-  // Comparando atributo pontos turísticos
-  printf("** Batalha de Pontos Turísticos **\n");
-  printf("Pontos turísticos Carta 1 [%d] \n", ptsTuristicosCidade_1);
-  printf("Pontos turísticos Carta 2 [%d] \n", ptsTuristicosCidade_2);
-
-  if (ptsTuristicosCidade_1 > ptsTuristicosCidade_2) {
-    printf("- Carta [1] venceu! %s possui %d Pontos Turisticos a mais que %s!\n", nomeCidade_1, res, nomeCidade_2);
-  } else {
-    printf("- Carta [2] venceu! %s possui %d Pontos Turisticos a mais que %s!\n", nomeCidade_2, res, nomeCidade_1);
-  }
-
-  //Adicionei a biblioteca Math para usar a função fabs e ignorar
-  //o sinal negativo caso a carta 2 vença.
   float resSup = fabs(superPoderCidade_1 - superPoderCidade_2);
 
+  // Comparando atributo pontos turísticos
+  // printf("** Batalha de Pontos Turísticos **\n");
+  // printf("Pontos turísticos Carta 1 [%d] \n", ptsTuristicosCidade_1);
+  // printf("Pontos turísticos Carta 2 [%d] \n", ptsTuristicosCidade_2);
+
+  // Adicionei a biblioteca Math para usar a função fabs e ignorar
+  // o sinal negativo caso a carta 2 vença.
+
   // Comparando atributo Super poder
-  printf("** Batalha de Super Poderes **\n");
-  if (superPoderCidade_1 > superPoderCidade_2) {
-    printf("- Carta [1] venceu! %s tem um Super Poder de %.2f a mais no total!\n", nomeCidade_1, resSup);
-  } else {
-    printf("- Carta [2] venceu! %s tem um Super Poder de %.2f a mais no total!\n\n", nomeCidade_2, resSup);
-  }
+
+  // Menu de opções de atributo/carta
+  int opcaoMenu;
+
+  printf("**** Escolha uma das Opções abaixo para a BATALHA ***\n\n");
+  printf("[1] - PONTOS TURÍSTICOS\n");
+  printf("[2] - POPULAÇÃO DA CIDADE\n");
+  printf("[3] - ÁREA DA CIDADE\n");
+  printf("[4] - PIB DA CIDADE\n");
+  printf("[5] - PIB PER CAPITA\n");
+  printf("[6] - DENSIDADE POPULACIONAL\n");
+  printf("[7] - SUPER PODERES\n");
+  scanf("%d", &opcaoMenu);
+
+  printf("Opção escolhida: %d\n", opcaoMenu);
+  
+
+  switch (opcaoMenu){
+    case 1:
+      if (ptsTuristicosCidade_1 > ptsTuristicosCidade_2)
+      {
+        printf("--------------------------------------------------\n");
+        printf("Carta 1 venceu! Cidade: %s\n", nomeCidade_1);
+        printf("%s - Pontos turísticos: [%d]\n", nomeCidade_1, ptsTuristicosCidade_1);
+        printf("%s - Pontos turísticos: [%d]\n", nomeCidade_2, ptsTuristicosCidade_2);
+        printf("--------------------------------------------------\n");
+      }
+      else if (ptsTuristicosCidade_2 > ptsTuristicosCidade_1)
+      {
+        printf("--------------------------------------------------\n");
+        printf("Carta 2 venceu! Cidade: %s\n", nomeCidade_2);
+        printf("%s - Pontos turísticos: [%d]\n", nomeCidade_1, ptsTuristicosCidade_1);
+        printf("%s - Pontos turísticos: [%d]\n", nomeCidade_2, ptsTuristicosCidade_2);
+        printf("--------------------------------------------------\n");
+      } else {
+        printf("--------------------------------------------------\n");
+        printf("------------------- EMPATE -----------------------\n");
+        printf("%s - Pontos turísticos: [%d]\n", nomeCidade_1, ptsTuristicosCidade_1);
+        printf("%s - Pontos turísticos: [%d]\n", nomeCidade_2, ptsTuristicosCidade_2);
+        printf("--------------------------------------------------\n");
+      }
+      break;
+
+    case 2:
+      if (populacaoCidade_1 > populacaoCidade_2)
+      {
+        printf("--------------------------------------------------\n");
+        printf("Carta 1 venceu! Cidade: %s\n", nomeCidade_1);
+        printf("%s - População: [%lu]\n", nomeCidade_1, populacaoCidade_1);
+        printf("%s - População: [%lu]\n", nomeCidade_2, populacaoCidade_2);
+        printf("--------------------------------------------------\n");
+      }
+      else if (populacaoCidade_2 > populacaoCidade_1)
+      {
+        printf("--------------------------------------------------\n");
+        printf("Carta 2 venceu! Cidade: %s\n", nomeCidade_2);
+        printf("%s - População: [%lu]\n", nomeCidade_1, populacaoCidade_1);
+        printf("%s - População: [%lu]\n", nomeCidade_2, populacaoCidade_2);
+        printf("--------------------------------------------------\n");
+      } else {
+        printf("--------------------------------------------------\n");
+        printf("------------------- EMPATE -----------------------\n");
+        printf("%s - População: [%lu]\n", nomeCidade_1, populacaoCidade_1);
+        printf("%s - População: [%lu]\n", nomeCidade_2, populacaoCidade_2);
+        printf("--------------------------------------------------\n");
+      }
+      break;
+
+    case 3:
+      if (areaCidade_1 > areaCidade_2)
+      {
+        printf("--------------------------------------------------\n");
+        printf("Carta 1 venceu! Cidade: %s\n", nomeCidade_1);
+        printf("%s - Área: [%.2f km²]\n", nomeCidade_1, areaCidade_1);
+        printf("%s - Área: [%.2f km²]\n", nomeCidade_2, areaCidade_2);
+        printf("--------------------------------------------------\n");
+      }
+      else if (areaCidade_2 > areaCidade_1)
+      {
+        printf("--------------------------------------------------\n");
+        printf("Carta 2 venceu! Cidade: %s\n", nomeCidade_2);
+        printf("%s - Área: [%.2f km²]\n", nomeCidade_1, areaCidade_1);
+        printf("%s - Área: [%.2f km²]\n", nomeCidade_2, areaCidade_2);
+        printf("--------------------------------------------------\n");
+      } else {
+        printf("--------------------------------------------------\n");
+        printf("------------------- EMPATE -----------------------\n");
+        printf("%s - Área: [%.2f km²]\n", nomeCidade_1, areaCidade_1);
+        printf("%s - Área: [%.2f km²]\n", nomeCidade_2, areaCidade_2);
+        printf("--------------------------------------------------\n");
+      }
+      break;
+
+    case 4:
+      if (pibCidade_1 > pibCidade_2)
+      {
+        printf("--------------------------------------------------\n");
+        printf("Carta 1 venceu! Cidade: %s\n", nomeCidade_1);
+        printf("%s - PIB: [%.2f]\n", nomeCidade_1, pibCidade_1);
+        printf("%s - PIB: [%.2f]\n", nomeCidade_2, pibCidade_2);
+        printf("--------------------------------------------------\n");
+      }
+      else if (pibCidade_2 > pibCidade_1)
+      {
+        printf("--------------------------------------------------\n");
+        printf("Carta 2 venceu! Cidade: %s\n", nomeCidade_2);
+        printf("%s - PIB: [%.2f]\n", nomeCidade_1, pibCidade_1);
+        printf("%s - PIB: [%.2f]\n", nomeCidade_2, pibCidade_2);
+        printf("--------------------------------------------------\n");
+      } else {
+        printf("--------------------------------------------------\n");
+        printf("------------------- EMPATE -----------------------\n");
+        printf("%s - PIB: [%.2f]\n", nomeCidade_1, pibCidade_1);
+        printf("%s - PIB: [%.2f]\n", nomeCidade_2, pibCidade_2);
+        printf("--------------------------------------------------\n");
+      }
+      break;
+
+    case 5:
+      if (pibPercapita_1 > pibPercapita_2)
+      {
+        printf("--------------------------------------------------\n");
+        printf("Carta 1 venceu! Cidade: %s\n", nomeCidade_1);
+        printf("%s - PIB per capita: [%.2f]\n", nomeCidade_1, pibPercapita_1);
+        printf("%s - PIB per capita: [%.2f]\n", nomeCidade_2, pibPercapita_2);
+        printf("--------------------------------------------------\n");
+      }
+      else if (pibPercapita_2 > pibPercapita_1)
+      {
+        printf("--------------------------------------------------\n");
+        printf("Carta 2 venceu! Cidade: %s\n", nomeCidade_2);
+        printf("%s - PIB per capita: [%.2f]\n", nomeCidade_1, pibPercapita_1);
+        printf("%s - PIB per capita: [%.2f]\n", nomeCidade_2, pibPercapita_2);
+        printf("--------------------------------------------------\n");
+      } else {
+        printf("--------------------------------------------------\n");
+        printf("------------------- EMPATE -----------------------\n");
+        printf("%s - PIB per capita: [%.2f]\n", nomeCidade_1, pibPercapita_1);
+        printf("%s - PIB per capita: [%.2f]\n", nomeCidade_2, pibPercapita_2);
+        printf("--------------------------------------------------\n");
+      }
+      break;
+
+    case 6:
+      if (densidadePopulacional_1 < densidadePopulacional_2)
+      {
+        printf("--------------------------------------------------\n");
+        printf("Carta 1 venceu! Cidade: %s\n", nomeCidade_1);
+        printf("%s - Densidade populacional: [%.2f hab/km²]\n", nomeCidade_1, densidadePopulacional_1);
+        printf("%s - Densidade populacional: [%.2f hab/km²]\n", nomeCidade_2, densidadePopulacional_2);
+        printf("--------------------------------------------------\n");
+      }
+      else if (densidadePopulacional_2 < densidadePopulacional_1)
+      {
+        printf("--------------------------------------------------\n");
+        printf("Carta 2 venceu! Cidade: %s\n", nomeCidade_2);
+        printf("%s - Densidade populacional: [%.2f hab/km²]\n", nomeCidade_1, densidadePopulacional_1);
+        printf("%s - Densidade populacional: [%.2f hab/km²]\n", nomeCidade_2, densidadePopulacional_2);
+        printf("--------------------------------------------------\n");
+      } else {
+        printf("--------------------------------------------------\n");
+        printf("------------------- EMPATE -----------------------\n");
+        printf("%s - Densidade populacional: [%.2f hab/km²]\n", nomeCidade_1, densidadePopulacional_1);
+        printf("%s - Densidade populacional: [%.2f hab/km²]\n", nomeCidade_2, densidadePopulacional_2);
+        printf("--------------------------------------------------\n");
+      }
+      break;
+
+    case 7:
+      if (superPoderCidade_1 > superPoderCidade_2)
+      {
+        printf("--------------------------------------------------\n");
+        printf("Carta 1 venceu! Cidade: %s\n", nomeCidade_1);
+        printf("%s - Super Poder: [%.2f]\n", nomeCidade_1, superPoderCidade_1);
+        printf("%s - Super Poder: [%.2f]\n", nomeCidade_2, superPoderCidade_2);
+        printf("--------------------------------------------------\n");
+      }
+      else if (superPoderCidade_2 > superPoderCidade_1)
+      {
+        printf("--------------------------------------------------\n");
+        printf("Carta 2 venceu! Cidade: %s\n", nomeCidade_2);
+        printf("%s - Super Poder: [%.2f]\n", nomeCidade_1, superPoderCidade_1);
+        printf("%s - Super Poder: [%.2f]\n", nomeCidade_2, superPoderCidade_2);
+        printf("--------------------------------------------------\n");
+      } else {
+        printf("--------------------------------------------------\n");
+        printf("------------------- EMPATE -----------------------\n");
+        printf("%s - Super Poder: [%.2f]\n", nomeCidade_1, superPoderCidade_1);
+        printf("%s - Super Poder: [%.2f]\n", nomeCidade_2, superPoderCidade_2);
+        printf("--------------------------------------------------\n");
+      }
+      break;
+
+    default:
+      printf("--------------------------------------------------\n");
+      printf("Opção inválida!\n");
+      printf("--------------------------------------------------\n");
+      break;
+}
+
 
   return 0;
 }
