@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 // Aluno: Leandro Cardoso Braga
+//Curso ADS
 
 int main()
 {
@@ -990,7 +991,7 @@ int main()
         //=========================================BATALHA FINAL================================================//
         //======================================================================================================//
 
-        //       2                 0
+        
         if (somaTotalAtributosCarta_1 > somaTotalAtributosCarta_2)
         {
           printf("|========== RANKING [1] ==========|\n\n");
@@ -1000,7 +1001,7 @@ int main()
           printf("%d vitória(s) no total para CARTA 2 (%s).\n", vitoriaCarta_2, nomeCidade_2);
           printf("%d empate(s) no total.\n", empate);
           printf("--------------------------------------------------\n\n\n\n\n\n\n\n\n\n\n\n");
-        } //           2                 0
+        } 
         else if (somaTotalAtributosCarta_2 > somaTotalAtributosCarta_1)
         {
           printf("|========== RANKING [1] ==========|\n\n");
@@ -1011,7 +1012,7 @@ int main()
           printf("%d empate(s) no total.\n", empate);
           printf("--------------------------------------------------\n\n\n\n\n\n\n\n\n\n\n\n");
         }
-        else //                        1 a 1
+        else 
         {
           printf("--------------------------------------------------\n");
           printf("------------------- EMPATE -----------------------\n");
